@@ -2,5 +2,10 @@
     <string name="app_name">Administrador de Aplicaciones</string>
     <string name="mensaje_vacio">No hay App instaladas</string>
     <string name="titulo_lista">Aplicaciones Instaladas</string>
+    <string name="hint_nombre_aplicacion">Nombre de la Aplicación</string>
+    <string name="hint_nombre_desarrollador">Nombre del Desarrollador</string>
+    <string name="hint_descripcion">Descripción de la Aplicación</string>
+    <string name="chk_instalacion">Instalada/Actualizada</string>
+    <string name="btn_guardar">Guardar</string>
 
 </resources>

@@ -85,5 +85,15 @@ public class ElementoListView {
         return lstModeloElementos;
     }
 
+    public boolean conocerExistenElementos()
+    {
+        boolean blnRegistro = false;
+        Cursor cursor = bd.query(BDSqliteHelper.strTablaNombre,null,null,null,null,null,null);
+        if(cursor.getCount()>0)
+        {
+            blnRegistro = true;
+        }
+        return blnRegistro;
+    }
 }
 
