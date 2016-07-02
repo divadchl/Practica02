@@ -17,6 +17,10 @@ public class NuevoElemento extends AppCompatActivity {
         EditText edtNombreDesarrollador = (EditText) findViewById(R.id.nuevo_elemento_edtNombreDesarrollador);
         EditText edtDescripcion = (EditText) findViewById(R.id.nuevo_elemento_edtDescripcion);
         CheckBox chkInstalacion = (CheckBox) findViewById(R.id.nuevo_elemento_chkIntalacion);
+
+
+
+
         findViewById(R.id.nuevo_elemento_btnGuardar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

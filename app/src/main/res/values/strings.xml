@@ -7,5 +7,9 @@
     <string name="hint_descripcion">Descripción de la Aplicación</string>
     <string name="chk_instalacion">Instalada/Actualizada</string>
     <string name="btn_guardar">Guardar</string>
+    <string name="tb_titulo_activity_main">Administrador de Aplicaciones</string>
+    <string name="tb_subtitulo_activity_main">Aplicaciones Instaladas</string>
+    <string name="menu_item_agregar">Agregar App</string>
+    <string name="menu_item_editar">Editar App</string>
 
 </resources>
