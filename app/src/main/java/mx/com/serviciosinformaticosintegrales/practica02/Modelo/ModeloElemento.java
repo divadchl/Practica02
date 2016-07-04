@@ -4,9 +4,8 @@ public class ModeloElemento {
     public int intId;
     public String strNombreDesarrollador;
     public String strNombreApp;
-    public String strImagenRecurso;
+    public int intImagenRecurso;
     public int intInstalacion;
     public String strDescripcion;
-
 
 }

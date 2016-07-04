@@ -9,9 +9,12 @@ import android.view.MenuItem;
 
 import mx.com.serviciosinformaticosintegrales.practica02.fragmentos.FragmentoLista;
 import mx.com.serviciosinformaticosintegrales.practica02.fragmentos.FragmentoVacio;
-import mx.com.serviciosinformaticosintegrales.practica02.sql.ElementoListView;
+import mx.com.serviciosinformaticosintegrales.practica02.sql.ElementoRecursoDatos;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final int REQUEST_CODE_SECOND_ACTIVITY = 1;
+    public static boolean blnBanderaImagen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +53,13 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.menu_itmAgregar:
-                Intent intent = new Intent();
+                startActivityForResult(
+                        new Intent(getApplicationContext(),NuevoElemento.class),
+                        REQUEST_CODE_SECOND_ACTIVITY);
 
                 break;
             case R.id.menu_itmEditar:
+
                 break;
         }
 
@@ -63,15 +69,14 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean conocerElementosLista()
     {
-        ElementoListView objElementoListView = new ElementoListView(getApplicationContext());
-        return objElementoListView.conocerExistenElementos();
+        ElementoRecursoDatos objElementoRecursoDatos = new ElementoRecursoDatos(getApplicationContext());
+        return objElementoRecursoDatos.conocerExistenElementos();
     }
 
     private void cambiarFragmentoVacio()
     {
         getFragmentManager().beginTransaction().replace(R.id.activity_main_frlPrincipal, new FragmentoVacio()).commit();
-
-
+        blnBanderaImagen=true;
     }
 
     private void cambiarFragmentoLista()
@@ -79,4 +84,15 @@ public class MainActivity extends AppCompatActivity {
         getFragmentManager().beginTransaction().replace(R.id.activity_main_frlPrincipal, new FragmentoLista()).commit();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(REQUEST_CODE_SECOND_ACTIVITY==requestCode && resultCode==RESULT_OK)
+        {
+
+        }
+        else
+        {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
 }

@@ -11,11 +11,11 @@ import java.util.List;
 
 import mx.com.serviciosinformaticosintegrales.practica02.modelo.ModeloElemento;
 
-public class ElementoListView {
+public class ElementoRecursoDatos {
     private final SQLiteDatabase bd;
     private ModeloElemento elemento = null;
 
-    public ElementoListView(Context context)
+    public ElementoRecursoDatos(Context context)
     {
         BDSqliteHelper helper = new BDSqliteHelper(context);
         bd = helper.getWritableDatabase();
@@ -26,7 +26,7 @@ public class ElementoListView {
         ContentValues contentValues = new ContentValues();
         contentValues.put(BDSqliteHelper.strColNombreDesarrollador, modeloElemento.strNombreDesarrollador);
         contentValues.put(BDSqliteHelper.strColNombreApp, modeloElemento.strNombreApp);
-        contentValues.put(BDSqliteHelper.strColImagenRecurso, modeloElemento.strImagenRecurso);
+        contentValues.put(BDSqliteHelper.intColImagenRecurso, modeloElemento.intImagenRecurso);
         contentValues.put(BDSqliteHelper.strColInstalacion, modeloElemento.intInstalacion);
         contentValues.put(BDSqliteHelper.strColDescripcion, modeloElemento.strDescripcion);
         bd.insert(BDSqliteHelper.strTablaNombre, null,contentValues);
@@ -37,7 +37,7 @@ public class ElementoListView {
         ContentValues contentValues = new ContentValues();
         contentValues.put(BDSqliteHelper.strColNombreDesarrollador, modelElemento.strNombreDesarrollador);
         contentValues.put(BDSqliteHelper.strColNombreApp, modelElemento.strNombreApp);
-        contentValues.put(BDSqliteHelper.strColImagenRecurso, modelElemento.strImagenRecurso);
+        contentValues.put(BDSqliteHelper.intColImagenRecurso, modelElemento.intImagenRecurso);
         contentValues.put(BDSqliteHelper.strColInstalacion, modelElemento.intInstalacion);
         contentValues.put(BDSqliteHelper.strColDescripcion, modelElemento.strDescripcion);
         bd.update(BDSqliteHelper.strTablaNombre,contentValues,BDSqliteHelper.strColId + "=?",
@@ -60,7 +60,7 @@ public class ElementoListView {
             elemento.intId = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColId));
             elemento.strNombreDesarrollador = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColNombreDesarrollador));
             elemento.strNombreApp = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColNombreApp));
-            elemento.strImagenRecurso = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColImagenRecurso));
+            elemento.intImagenRecurso = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.intColImagenRecurso));
             elemento.intInstalacion = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColInstalacion));
             elemento.strDescripcion = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColDescripcion));
         }
@@ -77,7 +77,7 @@ public class ElementoListView {
             elemento.intId = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColId));
             elemento.strNombreDesarrollador = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColNombreDesarrollador));
             elemento.strNombreApp = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColNombreApp));
-            elemento.strImagenRecurso = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColImagenRecurso));
+            //elemento.strImagenRecurso = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColImagenRecurso));
             elemento.intInstalacion = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColInstalacion));
             elemento.strDescripcion = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColDescripcion));
             lstModeloElementos.add(elemento);

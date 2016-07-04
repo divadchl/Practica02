@@ -13,14 +13,14 @@ public class BDSqliteHelper extends SQLiteOpenHelper {
     public static final String strColId = BaseColumns._ID;
     public static final String strColNombreDesarrollador = "nombreDesarrollador";
     public static final String strColNombreApp = "nombreApp";
-    public static final String strColImagenRecurso = "imagenRecurso";
+    public static final String intColImagenRecurso = "imagenRecurso";
     public static final String strColInstalacion = "instalacion";
     public static final String strColDescripcion = "descripcion";
     private String strCrearTabla = "CREATE TABLE " + strTablaNombre +
             " (" + strColId + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             strColNombreDesarrollador + " TEXT NOT NULL, " +
             strColNombreApp + " TEXT NOT NULL, " +
-            strColImagenRecurso + " TEXT NOT NULL, " +
+            intColImagenRecurso + " INT NOT NULL, " +
             strColInstalacion + " INT NOT NULL, " +
             strColDescripcion + " TEXT NOT NULL)";
 
