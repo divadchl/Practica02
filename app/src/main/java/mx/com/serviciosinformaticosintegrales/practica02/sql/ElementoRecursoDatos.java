@@ -77,7 +77,7 @@ public class ElementoRecursoDatos {
             elemento.intId = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColId));
             elemento.strNombreDesarrollador = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColNombreDesarrollador));
             elemento.strNombreApp = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColNombreApp));
-            //elemento.strImagenRecurso = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColImagenRecurso));
+            elemento.intImagenRecurso = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.intColImagenRecurso));
             elemento.intInstalacion = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColInstalacion));
             elemento.strDescripcion = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColDescripcion));
             lstModeloElementos.add(elemento);

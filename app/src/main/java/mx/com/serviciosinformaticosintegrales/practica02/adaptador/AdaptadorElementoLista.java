@@ -41,7 +41,7 @@ public class AdaptadorElementoLista extends ArrayAdapter<ModeloElemento> {
 
         ModeloElemento objModeloElemento = getItem(position);
         Picasso.with(getContext()).load(objModeloElemento.intImagenRecurso==R.drawable.ic_action_name? url1:url2).into(imvImagenApp);
-
+        imvImagenApp.setImageResource(objModeloElemento.intImagenRecurso);
         txvNombreApp.setText(objModeloElemento.strNombreApp);
         txvNombreDesarrollador.setText(objModeloElemento.strNombreDesarrollador);
         if(objModeloElemento.intInstalacion==0)
