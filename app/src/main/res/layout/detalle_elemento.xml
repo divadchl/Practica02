@@ -20,6 +20,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:visibility="gone"
+            android:id="@+id/detalle_elemento_txvId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
             android:id="@+id/detalle_elemento_txvNombreDesarrollador"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
@@ -70,13 +75,16 @@
 
     </LinearLayout>
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:text="@string/descripcion"
             android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
             android:id="@+id/detalle_elemento_txvDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

@@ -27,6 +27,14 @@ public class FragmentoLista extends Fragment {
     private ElementoRecursoDatos objElementoRecursoDatos;
     private ListView lsvElementos;
 
+    public static FragmentoLista newInstance(Bundle arguments){
+        FragmentoLista f = new FragmentoLista();
+        if(arguments != null){
+            f.setArguments(arguments);
+        }
+        return f;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,6 +69,15 @@ public class FragmentoLista extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         objElementoRecursoDatos = new ElementoRecursoDatos(getActivity());
+    }
+
+
+    public void actualizarLista()
+    {
+        //objElementoRecursoDatos = new ElementoRecursoDatos(getActivity());
+        //List<ModeloElemento> lstModeloElemento2 = objElementoRecursoDatos.obtenerListaElementos();
+
+        //lsvElementos.setAdapter(new AdaptadorElementoLista(getActivity(), objElementoRecursoDatos.obtenerListaElementos()));
     }
 
 

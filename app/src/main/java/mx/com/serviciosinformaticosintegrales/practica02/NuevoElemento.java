@@ -1,5 +1,6 @@
 package mx.com.serviciosinformaticosintegrales.practica02;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -52,6 +53,9 @@ public class NuevoElemento extends AppCompatActivity {
                     objModeloElemento.intInstalacion=1;
                 }
                 objElementoRecursoDatos.guadarElemento(objModeloElemento);
+                Intent intent = new Intent();
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
     }

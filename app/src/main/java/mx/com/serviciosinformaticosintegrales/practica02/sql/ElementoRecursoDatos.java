@@ -3,6 +3,7 @@ package mx.com.serviciosinformaticosintegrales.practica02.sql;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -38,11 +39,11 @@ public class ElementoRecursoDatos {
         ContentValues contentValues = new ContentValues();
         contentValues.put(BDSqliteHelper.strColNombreDesarrollador, modelElemento.strNombreDesarrollador);
         contentValues.put(BDSqliteHelper.strColNombreApp, modelElemento.strNombreApp);
-        contentValues.put(BDSqliteHelper.intColImagenRecurso, modelElemento.intImagenRecurso);
+        //contentValues.put(BDSqliteHelper.intColImagenRecurso, modelElemento.intImagenRecurso);
         contentValues.put(BDSqliteHelper.strColInstalacion, modelElemento.intInstalacion);
-        contentValues.put(BDSqliteHelper.strColDescripcion, modelElemento.strDescripcion);
-        bd.update(BDSqliteHelper.strTablaNombre,contentValues,BDSqliteHelper.strColId + "=?",
-                new String[]{String.valueOf(modelElemento.intId)});
+        //contentValues.put(BDSqliteHelper.strColDescripcion, modelElemento.strDescripcion);
+        bd.update(BDSqliteHelper.strTablaNombre,contentValues,BDSqliteHelper.strColId + "= ?",
+                new String[]{ Integer.toString(modelElemento.intId)});
     }
 
     public void borrarElemento(ModeloElemento modeloElemento)

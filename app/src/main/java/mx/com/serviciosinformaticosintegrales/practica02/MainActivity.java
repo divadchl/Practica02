@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 import mx.com.serviciosinformaticosintegrales.practica02.fragmentos.FragmentoLista;
 import mx.com.serviciosinformaticosintegrales.practica02.fragmentos.FragmentoVacio;
@@ -15,19 +16,21 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_SECOND_ACTIVITY = 1;
     public static boolean blnBanderaImagen;
+    private ElementoRecursoDatos objElementoRecursoDatos;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        objElementoRecursoDatos = new ElementoRecursoDatos(getApplication());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.activity_main_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(R.string.tb_titulo_activity_main);
         getSupportActionBar().setSubtitle(R.string.tb_subtitulo_activity_main);
         getSupportActionBar().setIcon(R.drawable.ic_toolbar);
-
-
 
         if (conocerElementosLista())
         {
@@ -37,9 +40,6 @@ public class MainActivity extends AppCompatActivity {
         {
             cambiarFragmentoVacio();
         }
-
-
-
     }
 
     @Override
@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean conocerElementosLista()
     {
-        ElementoRecursoDatos objElementoRecursoDatos = new ElementoRecursoDatos(getApplicationContext());
         return objElementoRecursoDatos.conocerExistenElementos();
     }
 
@@ -83,9 +82,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        FragmentoLista f= new FragmentoLista();
         if(REQUEST_CODE_SECOND_ACTIVITY==requestCode && resultCode==RESULT_OK)
         {
 
+            f.actualizarLista();
         }
         else
         {

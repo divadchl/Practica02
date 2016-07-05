@@ -17,5 +17,7 @@
     <string name="btn_actualizar">Actualizar</string>
     <string name="desarrollador">Nombre del Desarrollador</string>
     <string name="descripcion">Descripción:</string>
+    <string name="actualizar">Actualizar Aplicación</string>
+    <string name="actualizada">La Aplicación está Actualizada</string>
 
 </resources>

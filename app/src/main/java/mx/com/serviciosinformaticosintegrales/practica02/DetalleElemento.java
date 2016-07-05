@@ -15,6 +15,8 @@ import mx.com.serviciosinformaticosintegrales.practica02.sql.ElementoRecursoDato
 
 public class DetalleElemento extends AppCompatActivity implements View.OnClickListener {
 
+    private int intId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +28,7 @@ public class DetalleElemento extends AppCompatActivity implements View.OnClickLi
         findViewById(R.id.detalle_elemento_btnActualizar).setOnClickListener(this);
         findViewById(R.id.detalle_elemento_btnDesinstalar).setOnClickListener(this);
         Bundle extras = getIntent().getExtras();
-        int intId = extras.getInt("id");
+        intId = extras.getInt("id");
         ElementoRecursoDatos objElementoRecursoDatos = new ElementoRecursoDatos(getApplication());
         ModeloElemento objModeloElemento = new ModeloElemento();
                 objModeloElemento = objElementoRecursoDatos.seleccionarElemento(intId);
@@ -71,6 +73,7 @@ public class DetalleElemento extends AppCompatActivity implements View.OnClickLi
         {
             case R.id.menu_itmEditar:
                 Intent intent = new Intent(getApplication(), EditarElemento.class);
+                intent.putExtra("id", intId);
                 startActivity(intent);
                 return true;
             case android.R.id.home:
