@@ -4,9 +4,10 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_weight="0.8"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/lista_elementos_imvImagenApp"
             android:layout_margin="@dimen/margen_imagen_derecha"
@@ -34,10 +35,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <TextView
+            android:layout_marginRight="15dp"
             android:gravity="right"
             android:text="instalada"
             android:id="@+id/lista_elementos_txvIntalacion"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/lista_elementos_txvId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>

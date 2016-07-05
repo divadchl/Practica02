@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".NuevoElemento" />
-        <activity android:name=".DetalleElemento"></activity>
+        <activity android:name=".DetalleElemento" />
+        <activity android:name=".EditarElemento"></activity>
     </application>
 
 </manifest>

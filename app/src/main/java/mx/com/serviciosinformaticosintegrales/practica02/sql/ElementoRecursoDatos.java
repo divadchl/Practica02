@@ -13,7 +13,8 @@ import mx.com.serviciosinformaticosintegrales.practica02.modelo.ModeloElemento;
 
 public class ElementoRecursoDatos {
     private final SQLiteDatabase bd;
-    private ModeloElemento elemento = null;
+    private ModeloElemento elemento;
+    private Cursor cursor;
 
     public ElementoRecursoDatos(Context context)
     {
@@ -52,17 +53,21 @@ public class ElementoRecursoDatos {
 
     public ModeloElemento seleccionarElemento(int intIdElemento)
     {
-        Cursor cursor = bd.query(BDSqliteHelper.strTablaNombre, null,BDSqliteHelper.strColId + "=?",
-                new String[]{String.valueOf(intIdElemento)},null,null,null);
+        String[] param = new String[1];
+        param[0] = Integer.toString(intIdElemento);
+        cursor = bd.query(BDSqliteHelper.strTablaNombre, null, BDSqliteHelper.strColId + "=?",
+                param,null,null,null);
         if (cursor.getCount() > 0)
         {
-            elemento = new ModeloElemento();
-            elemento.intId = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColId));
-            elemento.strNombreDesarrollador = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColNombreDesarrollador));
-            elemento.strNombreApp = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColNombreApp));
-            elemento.intImagenRecurso = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.intColImagenRecurso));
-            elemento.intInstalacion = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColInstalacion));
-            elemento.strDescripcion = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColDescripcion));
+            while(cursor.moveToNext()) {
+                elemento = new ModeloElemento();
+                elemento.intId = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColId));
+                elemento.strNombreDesarrollador = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColNombreDesarrollador));
+                elemento.strNombreApp = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColNombreApp));
+                elemento.intImagenRecurso = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.intColImagenRecurso));
+                elemento.intInstalacion = cursor.getInt(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColInstalacion));
+                elemento.strDescripcion = cursor.getString(cursor.getColumnIndexOrThrow(BDSqliteHelper.strColDescripcion));
+            }
         }
         return elemento;
     }
@@ -70,7 +75,7 @@ public class ElementoRecursoDatos {
     public List<ModeloElemento> obtenerListaElementos()
     {
         List<ModeloElemento> lstModeloElementos = new ArrayList<>();
-        Cursor cursor = bd.query(BDSqliteHelper.strTablaNombre,null,null,null,null,null,null);
+        cursor = bd.query(BDSqliteHelper.strTablaNombre,null,null,null,null,null,null);
         while(cursor.moveToNext())
         {
             elemento = new ModeloElemento();
@@ -88,7 +93,7 @@ public class ElementoRecursoDatos {
     public boolean conocerExistenElementos()
     {
         boolean blnRegistro = false;
-        Cursor cursor = bd.query(BDSqliteHelper.strTablaNombre,null,null,null,null,null,null);
+        cursor = bd.query(BDSqliteHelper.strTablaNombre,null,null,null,null,null,null);
         if(cursor.getCount()>0)
         {
             blnRegistro = true;

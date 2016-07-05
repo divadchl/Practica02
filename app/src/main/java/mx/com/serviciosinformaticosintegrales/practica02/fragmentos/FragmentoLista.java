@@ -23,12 +23,14 @@ import mx.com.serviciosinformaticosintegrales.practica02.sql.ElementoRecursoDato
 
 public class FragmentoLista extends Fragment {
 
+    private static final int REQUEST_CODE_SECOND_ACTIVITY = 1;
     private ElementoRecursoDatos objElementoRecursoDatos;
     private ListView lsvElementos;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        int intId;
         View view = inflater.inflate(R.layout.fragmento_lista, container, false);
         lsvElementos = (ListView) view.findViewById(R.id.fragmento_lista_lsvElementos);
 
@@ -40,6 +42,7 @@ public class FragmentoLista extends Fragment {
                 AdaptadorElementoLista adaptador = (AdaptadorElementoLista) parent.getAdapter();
                 ModeloElemento objModeloElemento = adaptador.getItem(position);
                 Intent intent = new Intent(getActivity(), DetalleElemento.class);
+                intent.putExtra("id", objModeloElemento.intId);
                 startActivity(intent);
             }
         }
@@ -59,7 +62,6 @@ public class FragmentoLista extends Fragment {
         super.onCreate(savedInstanceState);
         objElementoRecursoDatos = new ElementoRecursoDatos(getActivity());
     }
-
 
 
 }

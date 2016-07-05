@@ -20,7 +20,8 @@ import mx.com.serviciosinformaticosintegrales.practica02.modelo.ModeloElemento;
 public class AdaptadorElementoLista extends ArrayAdapter<ModeloElemento> {
 
     private final String url1 = "https://pbs.twimg.com/profile_images/572284141131943936/3CyobuK2.png";
-    private final String url2 = "http://www.azcona.eu/apps-aplicaciones-para-moviles-y-tabletas/";
+    private final String url2 = "https://lh4.ggpht.com/zfXLEYjCcn-peZoNQpwfqYTg-KtFuzs80Twae8obhfL_HS4ydGsJ1EUHIoKcyhLw8Pk=w300";
+
 
     public AdaptadorElementoLista(Context context, List<ModeloElemento> objects) {
         super(context, 0, objects);
@@ -37,6 +38,7 @@ public class AdaptadorElementoLista extends ArrayAdapter<ModeloElemento> {
         TextView txvNombreApp = (TextView) convertView.findViewById(R.id.lista_elementos_txvNombreApp);
         TextView txvNombreDesarrollador = (TextView) convertView.findViewById(R.id.lista_elementos_txvNombreDesarrollador);
         TextView txvInstalacion = (TextView) convertView.findViewById(R.id.lista_elementos_txvIntalacion);
+        TextView txvId = (TextView) convertView.findViewById(R.id.lista_elementos_txvId);
         ImageView imvImagenApp = (ImageView) convertView.findViewById(R.id.lista_elementos_imvImagenApp);
 
         ModeloElemento objModeloElemento = getItem(position);
@@ -52,6 +54,8 @@ public class AdaptadorElementoLista extends ArrayAdapter<ModeloElemento> {
         {
             txvInstalacion.setText("Actualizada");
         }
+
+        txvId.setText(String.valueOf(objModeloElemento.intId));
 
         return convertView;
     }

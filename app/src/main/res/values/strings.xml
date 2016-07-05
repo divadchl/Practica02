@@ -15,5 +15,7 @@
     <string name="btn_desinstalar">Desinstalar</string>
     <string name="btn_abrir">Abrir</string>
     <string name="btn_actualizar">Actualizar</string>
+    <string name="desarrollador">Nombre del Desarrollador</string>
+    <string name="descripcion">Descripción:</string>
 
 </resources>

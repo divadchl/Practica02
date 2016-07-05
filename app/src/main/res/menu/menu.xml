@@ -6,10 +6,4 @@
         android:title="@string/menu_item_agregar"
         android:icon="@drawable/ic_menu_agregar"
         app:showAsAction="ifRoom|withText"/>
-    <item
-        android:id="@+id/menu_itmEditar"
-        android:title="@string/menu_item_editar"
-        android:icon="@drawable/ic_menu_editar"
-        app:showAsAction="never"
-        />
 </menu>

@@ -58,9 +58,6 @@ public class MainActivity extends AppCompatActivity {
                         REQUEST_CODE_SECOND_ACTIVITY);
 
                 break;
-            case R.id.menu_itmEditar:
-
-                break;
         }
 
 
