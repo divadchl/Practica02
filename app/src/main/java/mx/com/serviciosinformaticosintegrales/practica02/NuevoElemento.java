@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import mx.com.serviciosinformaticosintegrales.practica02.sql.ElementoRecursoDato
 
 public class NuevoElemento extends AppCompatActivity {
 
+    private boolean blnBandera;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,28 +36,47 @@ public class NuevoElemento extends AppCompatActivity {
         findViewById(R.id.nuevo_elemento_btnGuardar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ElementoRecursoDatos objElementoRecursoDatos = new ElementoRecursoDatos(getApplicationContext());
-                ModeloElemento objModeloElemento = new ModeloElemento();
-                objModeloElemento.strNombreApp = edtNombreAplicacion.getText().toString();
-                objModeloElemento.strNombreDesarrollador = edtNombreDesarrollador.getText().toString();
-                objModeloElemento.strDescripcion = edtDescripcion.getText().toString();
-
-                List<ModeloElemento> lstModeloElemento = objElementoRecursoDatos.obtenerListaElementos();
-                MainActivity.blnBanderaImagen = !(lstModeloElemento.size()%2 == 0);
-                objModeloElemento.intImagenRecurso = MainActivity.blnBanderaImagen?R.drawable.ic_action_name:R.drawable.ic_action_name2;
-
-                if(chkInstalacion.isChecked())
+                if (edtNombreAplicacion.getText().toString().matches(""))
                 {
-                    objModeloElemento.intInstalacion = 0;
+                    Toast.makeText(getApplicationContext(),"Debe escribir el nombre de la aplicación",Toast.LENGTH_SHORT).show();
+                    blnBandera= false;
+                    
                 }
-                else
+                if (edtNombreDesarrollador.getText().toString().matches(""))
                 {
-                    objModeloElemento.intInstalacion=1;
+                    Toast.makeText(getApplicationContext(),"Debe escribir el nombre del desarrollador",Toast.LENGTH_SHORT).show();
+                    blnBandera= false;
                 }
-                objElementoRecursoDatos.guadarElemento(objModeloElemento);
-                Intent intent = new Intent();
-                setResult(RESULT_OK, intent);
-                finish();
+
+                if (edtDescripcion.getText().toString().matches(""))
+                {
+                    Toast.makeText(getApplicationContext(),"Debe escribir la descripción de la aplicación",Toast.LENGTH_SHORT).show();
+                    blnBandera= false;
+                }
+
+
+                if (blnBandera)
+                {
+                    ElementoRecursoDatos objElementoRecursoDatos = new ElementoRecursoDatos(getApplicationContext());
+                    ModeloElemento objModeloElemento = new ModeloElemento();
+                    objModeloElemento.strNombreApp = edtNombreAplicacion.getText().toString();
+                    objModeloElemento.strNombreDesarrollador = edtNombreDesarrollador.getText().toString();
+                    objModeloElemento.strDescripcion = edtDescripcion.getText().toString();
+
+                    List<ModeloElemento> lstModeloElemento = objElementoRecursoDatos.obtenerListaElementos();
+                    MainActivity.blnBanderaImagen = !(lstModeloElemento.size() % 2 == 0);
+                    objModeloElemento.intImagenRecurso = MainActivity.blnBanderaImagen ? R.drawable.ic_action_name : R.drawable.ic_action_name2;
+
+                    if (chkInstalacion.isChecked()) {
+                        objModeloElemento.intInstalacion = 0;
+                    } else {
+                        objModeloElemento.intInstalacion = 1;
+                    }
+                    objElementoRecursoDatos.guadarElemento(objModeloElemento);
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
             }
         });
     }
