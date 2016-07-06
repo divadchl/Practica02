@@ -10,25 +10,30 @@
         android:id="@+id/detalle_elemento_toolbar"
         layout="@layout/toolbar" />
 
+
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <TextView
-            android:layout_marginTop="20dp"
-            android:text="@string/desarrollador"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/desarrollador" />
+
         <TextView
-            android:visibility="gone"
             android:id="@+id/detalle_elemento_txvId"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
         <TextView
             android:id="@+id/detalle_elemento_txvNombreDesarrollador"
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,27 +51,28 @@
             android:textAllCaps="false" />
 
         <Button
-            android:textAllCaps="false"
             android:id="@+id/detalle_elemento_btnAbrir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="@string/btn_abrir" />
+            android:text="@string/btn_abrir"
+            android:textAllCaps="false" />
     </LinearLayout>
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:textAllCaps="false"
-            android:text="@string/btn_actualizar"
             android:id="@+id/detalle_elemento_btnActualizar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/btn_actualizar"
+            android:textAllCaps="false" />
 
         <Space
             android:layout_width="wrap_content"
@@ -74,20 +80,28 @@
             android:layout_weight="2" />
 
     </LinearLayout>
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
-            android:text="@string/descripcion"
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/descripcion" />
+
         <TextView
             android:id="@+id/detalle_elemento_txvDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/detalle_elemento_prbProgreso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 </LinearLayout>

@@ -101,5 +101,14 @@ public class ElementoRecursoDatos {
         }
         return blnRegistro;
     }
+
+    public void actualizarAplicacion(ModeloElemento objModeloElemento)
+    {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(BDSqliteHelper.strColInstalacion, objModeloElemento.intInstalacion);
+        bd.update(BDSqliteHelper.strTablaNombre,contentValues,BDSqliteHelper.strColId + "=?",
+                new String[]{Integer.toString(objModeloElemento.intId)});
+
+    }
 }
 
