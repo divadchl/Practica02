@@ -1,7 +1,10 @@
 package mx.com.serviciosinformaticosintegrales.practica02;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -26,6 +29,11 @@ public class EditarElemento extends AppCompatActivity implements View.OnClickLis
         edtNombreDesarrollador = (EditText) findViewById(R.id.editar_elemento_edtNombreDesarrollador);
         chkInstalacion = (CheckBox) findViewById(R.id.editar_elemento_chkIntalacion);
         findViewById(R.id.editar_elemento_btnGuardar).setOnClickListener(this);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.editar_elemento_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.editar_aplicacion);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle extras = getIntent().getExtras();
         intId = extras.getInt("id");
@@ -72,8 +80,27 @@ public class EditarElemento extends AppCompatActivity implements View.OnClickLis
                     }
                 }
                 objElementoRecursoDatos.editarElemento(objModeloElemento);
+                Intent intent = new Intent();
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+            case android.R.id.home:
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                Intent intent = new Intent();
+                setResult(RESULT_OK, intent);
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

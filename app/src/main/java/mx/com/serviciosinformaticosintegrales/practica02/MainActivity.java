@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 
 import mx.com.serviciosinformaticosintegrales.practica02.fragmentos.FragmentoLista;
 import mx.com.serviciosinformaticosintegrales.practica02.fragmentos.FragmentoVacio;
@@ -81,12 +80,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        FragmentoLista f= new FragmentoLista();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         if(REQUEST_CODE_SECOND_ACTIVITY==requestCode && resultCode==RESULT_OK)
         {
-
-            f.actualizarLista();
+            getFragmentManager().beginTransaction().replace(R.id.activity_main_frlPrincipal, new FragmentoLista()).commit();
         }
         else
         {

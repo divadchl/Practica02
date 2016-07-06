@@ -18,21 +18,21 @@
         <EditText
             android:id="@+id/nuevo_elemento_edtNombreAplicacion"
             android:hint="@string/hint_nombre_aplicacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            style="@style/hint" />
         <EditText
             android:id="@+id/nuevo_elemento_edtNombreDesarrollador"
             android:hint="@string/hint_nombre_desarrollador"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            style="@style/hint" />
 
         <EditText
             android:hint="@string/hint_descripcion"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:inputType="textMultiLine"
-            android:id="@+id/nuevo_elemento_edtDescripcion" />
+            android:id="@+id/nuevo_elemento_edtDescripcion"
+            style="@style/hint"/>
         <CheckBox
+            android:layout_marginTop="20dp"
             android:text="@string/chk_instalacion"
             android:id="@+id/nuevo_elemento_chkIntalacion"
             android:layout_width="match_parent"
@@ -40,18 +40,19 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
-            android:textAllCaps="false"
             android:text="@string/btn_guardar"
             android:layout_gravity="bottom"
             android:id="@+id/nuevo_elemento_btnGuardar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            style="@style/boton"/>
     </LinearLayout>
 
 </LinearLayout>

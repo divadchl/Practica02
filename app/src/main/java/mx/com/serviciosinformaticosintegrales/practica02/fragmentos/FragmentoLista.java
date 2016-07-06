@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -27,13 +28,6 @@ public class FragmentoLista extends Fragment {
     private ElementoRecursoDatos objElementoRecursoDatos;
     private ListView lsvElementos;
 
-    public static FragmentoLista newInstance(Bundle arguments){
-        FragmentoLista f = new FragmentoLista();
-        if(arguments != null){
-            f.setArguments(arguments);
-        }
-        return f;
-    }
 
     @Nullable
     @Override
@@ -51,7 +45,10 @@ public class FragmentoLista extends Fragment {
                 ModeloElemento objModeloElemento = adaptador.getItem(position);
                 Intent intent = new Intent(getActivity(), DetalleElemento.class);
                 intent.putExtra("id", objModeloElemento.intId);
-                startActivity(intent);
+                //startActivity(intent);
+
+                startActivityForResult(intent,
+                        REQUEST_CODE_SECOND_ACTIVITY);
             }
         }
         );
@@ -72,12 +69,19 @@ public class FragmentoLista extends Fragment {
     }
 
 
-    public void actualizarLista()
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        //objElementoRecursoDatos = new ElementoRecursoDatos(getActivity());
-        //List<ModeloElemento> lstModeloElemento2 = objElementoRecursoDatos.obtenerListaElementos();
+        if(REQUEST_CODE_SECOND_ACTIVITY==requestCode && resultCode==getActivity().RESULT_OK)
+        {
+            List<ModeloElemento> lstModeloElemento = objElementoRecursoDatos.obtenerListaElementos();
+            lsvElementos.setAdapter(new AdaptadorElementoLista(getActivity(),lstModeloElemento));
+        }
+        else
+        {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
 
-        //lsvElementos.setAdapter(new AdaptadorElementoLista(getActivity(), objElementoRecursoDatos.obtenerListaElementos()));
     }
 
 

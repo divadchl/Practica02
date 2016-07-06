@@ -19,5 +19,8 @@
     <string name="descripcion">Descripción:</string>
     <string name="actualizar">Actualizar Aplicación</string>
     <string name="actualizada">La Aplicación está Actualizada</string>
+    <string name="titulo_borrar_elemento">Eliminar Aplicación</string>
+    <string name="mensage_borrar_elemento">¿Desea eliminar la aplicación</string>
+    <string name="editar_aplicacion">Editar Aplicación</string>
 
 </resources>

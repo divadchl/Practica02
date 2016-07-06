@@ -26,21 +26,25 @@
             android:text="nombre app"
             android:id="@+id/lista_elementos_txvNombreApp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:textColor="#07134b" />
         <TextView
-            android:textStyle="bold"
             android:textSize="16sp"
             android:text="nombre desarrollador"
             android:id="@+id/lista_elementos_txvNombreDesarrollador"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:textColor="#07134b"
+            android:textStyle="italic" />
         <TextView
             android:layout_marginRight="15dp"
             android:gravity="right"
             android:text="instalada"
             android:id="@+id/lista_elementos_txvIntalacion"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:textColor="#07134b"
+            android:textStyle="bold|italic" />
         <TextView
             android:visibility="gone"
             android:id="@+id/lista_elementos_txvId"

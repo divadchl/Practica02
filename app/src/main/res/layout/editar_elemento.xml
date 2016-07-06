@@ -16,29 +16,35 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:textColor="#07134b"
+            android:layout_marginTop="20dp"
             android:inputType="text"
             android:id="@+id/editar_elemento_edtNombreAplicacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <EditText
+            android:textColor="#07134b"
+            android:layout_marginTop="20dp"
             android:inputType="text"
             android:id="@+id/editar_elemento_edtNombreDesarrollador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <CheckBox
+            android:layout_marginTop="20dp"
             android:id="@+id/editar_elemento_chkIntalacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
-            android:textAllCaps="false"
+            style="@style/boton"
             android:text="@string/btn_guardar"
             android:layout_gravity="bottom"
             android:id="@+id/editar_elemento_btnGuardar"
