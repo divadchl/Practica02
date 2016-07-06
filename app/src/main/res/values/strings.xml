@@ -22,5 +22,11 @@
     <string name="titulo_borrar_elemento">Eliminar Aplicación</string>
     <string name="mensage_borrar_elemento">¿Desea eliminar la aplicación</string>
     <string name="editar_aplicacion">Editar Aplicación</string>
+    <string name="titutlo_notificacion">Desinstalando la Aplicación</string>
+    <string name="text_notificacion">Se esta desinstlando la aplicación</string>
+    <string name="titulo_notificacion_post">Desinstalación Completa</string>
+    <string name="text_notificacion_post">Se ha completado la desisntalación</string>
+    <string name="txv_leyenda_desinstalacion">Aplicación Desinstalada</string>
+    <string name="bigText_notificacion_post">Se ha completado la desinstalación de la aplicación:</string>
 
 </resources>

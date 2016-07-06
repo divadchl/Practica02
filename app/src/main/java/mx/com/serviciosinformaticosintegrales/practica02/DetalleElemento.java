@@ -12,11 +12,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import mx.com.serviciosinformaticosintegrales.practica02.modelo.ModeloElemento;
+import mx.com.serviciosinformaticosintegrales.practica02.servicio.ServicioNotificacion;
 import mx.com.serviciosinformaticosintegrales.practica02.sql.ElementoRecursoDatos;
 
 public class DetalleElemento extends AppCompatActivity implements View.OnClickListener {
@@ -29,13 +31,18 @@ public class DetalleElemento extends AppCompatActivity implements View.OnClickLi
     private ElementoRecursoDatos objElementoRecursoDatos;
     private ModeloElemento objModeloElemento;
     private boolean blnBloquearMenu;
+    private LinearLayout lnlContenedor;
+    private TextView txvLeyendaDesinstalacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detalle_elemento);
+
+        lnlContenedor = (LinearLayout) findViewById(R.id.detalle_elemento_lnlContenedor);
         TextView txvNombreDesarrollador = (TextView) findViewById(R.id.detalle_elemento_txvNombreDesarrollador);
         TextView txvDescripcion = (TextView) findViewById(R.id.detalle_elemento_txvDescripcion);
+        txvLeyendaDesinstalacion = (TextView) findViewById(R.id.detalle_elemento_txvLeyenda);
         prbProgreso = (ProgressBar) findViewById(R.id.detalle_elemento_prbProgreso);
 
         btnAbrir= (Button) findViewById(R.id.detalle_elemento_btnAbrir);
@@ -103,6 +110,11 @@ public class DetalleElemento extends AppCompatActivity implements View.OnClickLi
                                 btnActualizar.setVisibility(View.INVISIBLE);
                                 btnDesinstalar.setVisibility(View.INVISIBLE);
                                 btnAbrir.setVisibility(View.INVISIBLE);
+                                lnlContenedor.setVisibility(View.INVISIBLE);
+                                txvLeyendaDesinstalacion.setText(getString(R.string.txv_leyenda_desinstalacion));
+                                Intent intent = new Intent(getApplicationContext(), ServicioNotificacion.class);
+                                intent.putExtra("nombre_aplicacion", objModeloElemento.strNombreApp);
+                                startService(intent);
                             }
                         },1000*5);
 
